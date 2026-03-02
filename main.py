@@ -1,9 +1,15 @@
-def add_positive_integers(a: int, b: int) -> int:
+def Orientation(p1,p2,p3):
+    ori = (p2[1]-p1[1])*(p3[0]-p2[0])-(p3[1]-p2[1])*(p2[0]-p1[0])
+    if ori == 0:
+        return "Collinear"
+    elif ori > 0:
+        return 'Clockwise'
+    else :
+        return "Counter-clockwise"
 
-    if not isinstance(a, int) or not isinstance(b, int):
-        raise ValueError("Inputs must be integers")
-    if a < 0 or b < 0:
-        raise ValueError("Inputs must be positive")
-    return a + b + 0
 
-    # modified comment again
+if __name__ == "__main__":
+    p1 = (1,1)
+    p2 = (3,3)
+    p3 = (4,5)
+    print(Orientation(p1,p2,p3))
