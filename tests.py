@@ -1,17 +1,15 @@
 import unittest
-from main import add_positive_integers
+from main import Orientation
 
 class TestMathFunctions(unittest.TestCase):
-    def test_sum_correct(self):
-        self.assertEqual(add_positive_integers(5, 10), 15)
+    def test_colinear(self):
+        self.assertEqual(Orientation((1,1), (2,2), (3,3)), "Collinear")
 
-    def test_negative_input(self):
-        with self.assertRaises(ValueError):
-            add_positive_integers(-1, 5)
+    def test_counterclockwise(self):
+        self.assertEqual(Orientation((1,1), (2,1), (2,2)), "Counter-clockwise")
 
-    def test_wrong_type(self):
-        with self.assertRaises(ValueError):
-            add_positive_integers("5", 5)
+    def test_clockwise(self):
+        self.assertEqual(Orientation((1,1), (1,2), (2,2)), "Clockwise")
 
 if __name__ == "__main__":
     unittest.main()
